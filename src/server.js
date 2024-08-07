@@ -2,7 +2,7 @@ import express from 'express';
 import pino from 'pino-http';
 import cors from 'cors';
 import { env } from './utils/env.js';
-import { router } from './routers/contacts.js';
+import { contactsRouter } from './routers/contacts.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 
@@ -14,7 +14,7 @@ export const stetupServer = () => {
   app.use(express.json());
   app.use(pino());
   app.use(cors());
-  app.use(router);
+  app.use(contactsRouter);
 
   app.use('*', notFoundHandler);
 
