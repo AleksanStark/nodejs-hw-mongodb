@@ -11,10 +11,13 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import { createContactSchema } from '../validation/contacts.js';
 import { isValidId } from '../middlewares/isValidId.js';
+import { authenticate } from '../middlewares/authenticate.js';
 
 export const contactsRouter = Router();
 
-contactsRouter.get('/contacts', ctrlWrapper(getAllContactsController));
+contactsRouter.use(authenticate);
+
+contactsRouter.get('/', ctrlWrapper(getAllContactsController));
 contactsRouter.get(
   '/:contactId',
   isValidId,
@@ -36,6 +39,5 @@ contactsRouter.patch(
 contactsRouter.delete(
   '/:contactId',
   isValidId,
-  validateBody(createContactSchema),
   ctrlWrapper(deleteContactController),
 );
