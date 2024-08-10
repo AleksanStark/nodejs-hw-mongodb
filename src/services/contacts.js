@@ -1,6 +1,7 @@
 import { SORT_ORDER } from '../constants/index.js';
 import { contactCollection } from '../db/models/contact.js';
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
+import { ObjectId } from 'mongoose';
 
 export const getAllContacts = async ({
   page = 1,
@@ -41,8 +42,10 @@ export const getAllContacts = async ({
   };
 };
 
-export const getContactById = async (userId) => {
-  const contact = await contactCollection.findOne({ userId: userId });
+export const getContactById = async (userId, contactId) => {
+  const contact = await contactCollection.findOne({
+    userId: userId,
+  });
   return contact;
 };
 

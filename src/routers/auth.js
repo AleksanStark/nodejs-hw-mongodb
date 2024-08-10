@@ -8,7 +8,6 @@ import {
   refreshUserSessionController,
   registerUserController,
 } from '../controllers/auth.js';
-import { loginUser } from '../services/auth.js';
 
 export const authRouter = Router();
 
