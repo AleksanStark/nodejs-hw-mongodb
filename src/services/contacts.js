@@ -1,7 +1,6 @@
 import { SORT_ORDER } from '../constants/index.js';
 import { contactCollection } from '../db/models/contact.js';
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
-import { ObjectId } from 'mongoose';
 
 export const getAllContacts = async ({
   page = 1,
@@ -73,7 +72,7 @@ export const updateContact = async (
   if (!rawResult || !rawResult.value) return null;
 
   return {
-    student: rawResult.value,
+    contact: rawResult.value,
     isNew: Boolean(rawResult?.lastErrorObject?.upserted),
   };
 };
