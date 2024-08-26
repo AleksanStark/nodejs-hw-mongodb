@@ -23,8 +23,8 @@ requestBody:
             example: 'John Doe'
           phoneNumber:
             description: "Contact's phone number"
-            type: number
-            example: 12
+            type: string
+            example: '+8289909897'
           contactType:
             description: 'Type of contact'
             type: string
@@ -37,10 +37,6 @@ requestBody:
             description: 'If contact is favourite then true'
             type: boolean
             example: false
-          userid:
-            description: "User's id"
-            type: string
-            example: 66bb2a92820d6765b1b6207f
           photo:
             description: "Contact's photo"
             type: string

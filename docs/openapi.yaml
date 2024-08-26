@@ -12,24 +12,21 @@ tags:
   - name: Auth
     description: Auth operations.
 servers:
-  - url: http://localhost:3000/
+  - url: http://localhost:3000
   - url: https://nodejs-hw-mongodb-ui2k.onrender.com
 paths:
   /contacts:
-    get:    
+    get:
       $ref: ../swagger/paths/contacts/get.yaml
-  /contacts:
     post:
       $ref: ../swagger/paths/contacts/post.yaml
   /contacts/{id}:
     get:
       $ref: ../swagger/paths/contacts/{id}/get.yaml
-  /contacts/{id}:
-    delete: 
+    delete:
       $ref: ../swagger/paths/contacts/{id}/delete.yaml
-  /contacts/{id}:
-    patch:  
-      $ref: ../swagger/path/contacts/{id}/patch.yaml
+    patch:
+      $ref: ../swagger/paths/contacts/{id}/patch.yaml
 components:
   securitySchemes:
     bearerAuth:
